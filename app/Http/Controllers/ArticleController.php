@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -30,15 +31,12 @@ class ArticleController extends Controller
         return response()->json($article, 200);
     }
 
-    public function delete(Article $article)
+    public function destroy(Article $article)
     {
         $article->delete();
 
         return response()->json(null, 204);
     }
-
-
-
 
 
 
@@ -65,7 +63,7 @@ class ArticleController extends Controller
     //     return $article;
     // }
 
-    // public function delete(Request $request, $id)
+    // public function destroy(Request $request, $id)
     // {
     //     $article = Article::findOrFail($id);
     //     $article->delete();
