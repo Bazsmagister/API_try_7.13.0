@@ -1,100 +1,159 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <title>Laravel</title>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-            .full-height {
-                height: 100vh;
-            }
+    <!-- Styles -->
+    <style>
+        html,
+        body {
+            background-color: #fff;
+            color: #636b6f;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 200;
+            height: 100vh;
+            margin: 0;
+        }
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+        .full-height {
+            height: 100vh;
+        }
 
-            .position-ref {
-                position: relative;
-            }
+        .flex-center {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+        .position-ref {
+            position: relative;
+        }
 
-            .content {
-                text-align: center;
-            }
+        .top-right {
+            position: absolute;
+            right: 10px;
+            top: 18px;
+        }
 
-            .title {
-                font-size: 84px;
-            }
+        .content {
+            text-align: center;
+        }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+        .title {
+            font-size: 84px;
+        }
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+        .links>a {
+            color: #636b6f;
+            padding: 0 25px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
+        .m-b-md {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-center position-ref full-height">
+        @if (Route::has('login'))
+        <div class="top-right links">
+            @auth
+            <a href="{{ url('/home') }}">Home</a>
+            @else
+            <a href="{{ route('login') }}">Login</a>
+
+            @if (Route::has('register'))
+            <a href="{{ route('register') }}">Register</a>
             @endif
+            @endauth
+        </div>
+        @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+        <div class="content">
+            <div class="title m-b-md">
+                API example
+            </div>
+
+            <div class="links">
+
+                <a href="/api/articles">Api articles (index)</a>
+                <a href="/api/articles/1">Api article (show No1)</a>
+
+                <hr>
+
+                <div>
+                    Post method store next:
+                    <form action="/api/articles" method='Post'>
+                        @csrf
+                        <input type="text" name='title' placeholder="Title">
+
+
+                        <input type="text" name='body' placeholder="Body">
+                        <button type="submit">Store next</button>
+
+                    </form>
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <hr>
+
+                <div>
+                    Put method (update No 1):
+                    <form action="/api/articles/1" method='Post'>
+                        @method('put')
+                        @csrf
+                        <input type="text" name='title' placeholder="Title">
+
+
+                        <input type="text" name='body' placeholder="Body">
+                        <button type="submit">Submit</button>
+
+                    </form>
                 </div>
+
+                <hr>
+                <div>
+                    Delete method (delete No 1):
+                    <form action="/api/articles/1" method='Post'>
+                        @method('delete')
+                        @csrf
+
+                        <button type="submit">Delete No 1</button>
+
+                    </form>
+                </div>
+
+                <div>
+                    Delete method (delete No 1):
+                    <form action="/pamfs" method='get'>
+
+                        @csrf
+
+                        <button type="submit">Pamfs</button>
+
+                    </form>
+                </div>
+                <a href="/pamfs">Pamfs</a>
+
+
             </div>
         </div>
-    </body>
+    </div>
+
+    <a href="https://laravel.com/docs">Docs</a>
+    <a href="https://laracasts.com">Laracasts</a>
+</body>
+
 </html>

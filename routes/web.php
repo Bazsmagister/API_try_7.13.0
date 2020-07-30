@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,17 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/api/articles', 'ArticleController@index')->name('index');
+
+Route::get('/api/articles/1', 'ArticleController@show')->name('show');
+
+Route::put('/api/articles/1', 'ArticleController@update')->name('up');
+
+Route::put('/api/articles/1', 'ArticleController@delete')->name('del');
+
+Route::get('/pamfs', function () {
+    Artisan::call('migrate:fresh --seed');
+
+    return ('done');
+});
