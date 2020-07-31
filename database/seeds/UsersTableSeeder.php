@@ -2,6 +2,7 @@
 
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
 {
@@ -20,11 +21,11 @@ class UsersTableSeeder extends Seeder
         // Let's make sure everyone has the same password and
         // let's hash it before the loop, or else our seeder
         // will be too slow.
-        $password = Hash::make('toptal');
+        $password = Hash::make('adminadmin');
 
         User::create([
-            'name' => 'Administrator',
-            'email' => 'admin@test.com',
+            'name' => 'adminadmin',
+            'email' => 'admin@admin.com',
             'password' => $password,
         ]);
 

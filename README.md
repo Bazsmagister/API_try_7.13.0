@@ -31,3 +31,5 @@ curl -X PATCH -d '{"title":"new_title", "body":"new body"}' http://localhost:800
 
 LOGIN -> EXPIRED
 curl -v -d "email":"admin@test.com", "password":"toptal" -H "Content-Type: application/x-www-form-urlencoded" http://127.0.0.1:8000/login
+
+php artisan ui bootstrap

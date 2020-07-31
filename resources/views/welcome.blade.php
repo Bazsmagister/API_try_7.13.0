@@ -92,6 +92,9 @@
                 <a href="/api/articles">Api articles (index)</a>
                 <a href="/api/articles/1">Api article (show No1)</a>
 
+                <a href="/contacts ">Api contacts (index)</a>
+                <a href="/contacts/1 ">Api contacts (show No 1)</a>
+
                 <hr>
 
                 <div>

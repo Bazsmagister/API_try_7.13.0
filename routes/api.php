@@ -67,6 +67,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('articles', 'ArticleController');
 
+
+//Route::apiResource('contacts', 'ContactController');
+
+
 // Route::get('articles', 'ArticleController@index');
 // Route::get('articles/{article}', 'ArticleController@show');
 // Route::post('articles', 'ArticleController@store');

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 
@@ -35,3 +36,12 @@ Route::get('/pamfs', function () {
 
     return ('done');
 });
+
+//Route::Resource('contacts', 'ContactController');
+
+
+Route::get('contacts', 'ContactController@getIndex');
+Route::post('contacts/store', 'ContactController@postStore');
+Route::get('contacts/data', 'ContactController@getData');
+Route::post('contacts/update', 'ContactController@postUpdate');
+Route::post('contacts/delete', 'ContactController@postDelete');
