@@ -65,6 +65,7 @@ use Illuminate\Support\Facades\Route;
 // Auth::guard('api')->check(); // if a user is authenticated
 // Auth::guard('api')->id();
 
+//GOOD:
 Route::apiResource('articles', 'ArticleController');
 
 

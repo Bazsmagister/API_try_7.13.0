@@ -169,10 +169,11 @@
                 method: 'POST',
                 url: adminUrl + '/contacts/update',
                 data: getInputs(),
-                // dataType: 'JSON', //You don't seem to need JSON in that function anyways, so you can also take out the dataType: 'json' row.
+                dataType: 'JSON', //You don't seem to need JSON in that function anyways, so you can also take out the dataType: 'json' row.
 
              }).done(function(){
             console.log('updated');
+            alert('updated')
             reset()
             _modal.modal('hide')
             getRecords();
@@ -190,7 +191,7 @@
                 method: 'POST',
                 url: adminUrl + '/contacts/delete',
                 data:data,
-                // dataType: 'JSON', //You don't seem to need JSON in that function anyways, so you can also take out the dataType: 'json' row.
+                dataType: 'JSON', //You don't seem to need JSON in that function anyways, so you can also take out the dataType: 'json' row.
                 //  success: function () {
                 //     console.log('deleted');
                 //     getRecords();

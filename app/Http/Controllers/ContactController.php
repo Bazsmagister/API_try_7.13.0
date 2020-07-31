@@ -27,7 +27,11 @@ class ContactController extends Controller
 
     public function postStore(Request $request)
     {
-        return Contact::create($request->all());
+        //return Contact::create($request->all());
+
+        $contact = Contact::create($request->all());
+
+        return response()->json($contact, 201);
     }
 
 
@@ -38,6 +42,9 @@ class ContactController extends Controller
 
             $record->update($request->all());
         }
+        //$contact->update($request->all());
+
+        return response()->json('hello', 200);
     }
 
 
@@ -48,5 +55,14 @@ class ContactController extends Controller
 
             $record->delete();
         }
+
+        //$contact->delete();
+
+        return response()->json(null, 204);
+    }
+
+    public function show(Contact $contact)
+    {
+        return $contact;
     }
 }
