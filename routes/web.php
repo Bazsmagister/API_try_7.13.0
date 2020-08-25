@@ -47,3 +47,12 @@ Route::post('contacts/update', 'ContactController@postUpdate');
 Route::post('contacts/delete', 'ContactController@postDelete');
 
 Route::get('contacts/{contact}', 'ContactController@show');
+
+
+Route::get('post', 'DataController@postRequest');
+Route::get('get', 'DataController@getRequest');
+
+//--
+
+Route::get('testing', 'DataController@test'); // string 'success'
+Route::post('testing_post', 'DataController@test_post'); // string 'success'

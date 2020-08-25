@@ -96,16 +96,16 @@
                 <a href="/contacts/data ">Api contacts data</a>
                 <a href="/contacts/5 ">Api contacts show No5</a>
 
-                <hr>
 
+                <hr>
                 <div>
                     Post method store next:
                     <form action="/api/articles" method='Post'>
                         @csrf
-                        <input type="text" name='title' placeholder="Title">
+                        <input type="text" name='title' placeholder="Title" required>
 
 
-                        <input type="text" name='body' placeholder="Body">
+                        <input type="text" name='body' placeholder="Body" required>
                         <button type="submit">Store next</button>
 
                     </form>
@@ -118,10 +118,10 @@
                     <form action="/api/articles/1" method='Post'>
                         @method('put')
                         @csrf
-                        <input type="text" name='title' placeholder="Title">
+                        <input type="text" name='title' placeholder="Title" required>
 
 
-                        <input type="text" name='body' placeholder="Body">
+                        <input type="text" name='body' placeholder="Body" required>
                         <button type="submit">Submit</button>
 
                     </form>
@@ -150,7 +150,41 @@
                     </form>
                 </div>
                 <a href="/pamfs">Pamfs</a>
+                <hr>
 
+                <a href="/get">get</a>
+                <a href="/post">post</a>
+
+                <a href="http://localhost:8001/api/index">localhost:8001/api/index</a>
+                <a href="http://localhost:8001/api/store"> localhost:8001/api/store(see form above. that is the
+                    post
+                    route)</a>
+
+
+                <hr>
+                <div>
+                    Post method store in GuzzlePost :
+                    <form action="/api/store" method='Post'>
+                        @csrf
+                        <input type="text" name='name' placeholder="Title">
+
+                        <button type="submit">Store in api</button>
+
+                    </form>
+                </div>
+                <hr>
+                <a href="testing">testing (get)</a>
+                {{-- <a href="testing_post">testing_post</a> --}}
+
+                <div>
+                    Testing Post :
+                    <form action="/testing_post" method='Post'>
+                        @csrf
+
+                        <button type="submit">Store in api</button>
+
+                    </form>
+                </div>
 
             </div>
         </div>

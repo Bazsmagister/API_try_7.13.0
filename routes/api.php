@@ -87,3 +87,7 @@ Route::apiResource('articles', 'ArticleController');
 //     Route::put('articles/{article}', 'ArticleController@update');
 //     Route::delete('articles/{article}', 'ArticleController@delete');
 // });
+
+
+Route::post('store', 'GuzzlePostController@store');
+Route::get('index', 'GuzzlePostController@index');
