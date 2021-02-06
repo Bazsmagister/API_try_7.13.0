@@ -1,0 +1,81 @@
+{
+    "deploy.reloaded": {
+        "packages": [
+            {
+                "name": "YesOrNo",
+                "description": "YesOrNo",
+                "files": [
+                    "**/*.*"
+                    //"*.*",
+                    // "**/*.php",
+                    // "**/*.js",
+                    // "**/*.log"
+                    // "/*.json",
+                    // "/.env",
+                    // "/webpack.mix.js",
+                    // ".styleci.yml",
+                    // "composer.json",
+                    // "composer.lock",
+                    // "package.json",
+                    // "package.lock"
+                ],
+                "deployOnSave": ["My local folder"],
+
+                "exclude": ["tests/**", "vendor/**"]
+            }
+        ],
+        "targets": [
+            {
+                "type": "sftp",
+                "name": "My SFTP folder",
+                "description": "A SFTP folder",
+
+                "dir": "/my_package_files",
+                "host": "localhost",
+                "port": 22,
+                "user": "tester",
+                "password": "password",
+
+                "mappings": {
+                    "/dir/of/files/that/should/be/mapped/**/*": "dir/on/target"
+                }
+            },
+            {
+                "type": "ftp",
+                "name": "My FTP folder",
+                "description": "A FTP folder",
+
+                //"dir": "/my_package_files",
+                "dir": "/my_package_files",
+
+                "host": "localhost",
+                "port": 21,
+                "user": "anonymous",
+                "password": ""
+
+                // "deployed": [
+                //     {
+                //         "type": "sql",
+                //         "engine": "mysql",
+
+                //         "queries": [
+                //             "TRUNCATE TABLE `debug`",
+                //             "TRUNCATE TABLE `logs`"
+                //         ]
+                //     },
+                //     {
+                //         "target": "https://github.com/mkloubert"
+                //     }
+                // ]
+            },
+            {
+                "type": "local",
+                "name": "My local folder",
+                "description": "A local folder",
+
+                //"dir": "E:/test/my_package_files"
+                "dir": "/home/bazs/code/my_package_files/"
+            }
+        ]
+    }
+}
